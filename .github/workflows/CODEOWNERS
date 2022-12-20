@@ -1,0 +1,4 @@
+* @hvuddagi       # for any file @hvuddagi is the owner
+*.js @hvuddagi
+*.yml @hvuddagi
+/public/ @hvuddagi     # for the folder public @hvuddagi is the owner
