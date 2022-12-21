@@ -25,7 +25,7 @@ jobs:
       - name: Use NodeJS
         uses: actions/setup-node@v1 # for python use different setup
         with:
-          node-version: "12.x"
+          node-version: "16.x"
       - run: npm ci
       - run: npm run format:check
       - name: Run format prettier
