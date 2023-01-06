@@ -9,6 +9,17 @@ jobs:
       - run: npm i -D @zeit/ncc
       - name: Compile index.js
         run: npm run ncccompile
+      - uses: ./.github/actions/issue
+        id: issue
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: Title
+          body: Body
+          assignees: |
+            hvuddagi
+            harshaguptha
+      - run: |
+          echo ${{ steps.issue.outputs.issue }}
       - uses: ./.github/actions/hello
         id: hello
         with:
