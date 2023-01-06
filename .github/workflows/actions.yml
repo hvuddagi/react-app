@@ -19,7 +19,7 @@ jobs:
           body: Body
           assignees: |
             hvuddagi
-            harshaguptha
+            harshavardhanguptha
       - run: |
           echo ${{ steps.issue.outputs.issue }}
       - uses: ./.github/actions/hello
