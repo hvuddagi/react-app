@@ -9,6 +9,8 @@ jobs:
       - run: npm i -D @zeit/ncc
       - name: Compile index.js
         run: npm run ncccompile
+      - name: Compile issue/index.js
+        run: npm run compileissue
       - uses: ./.github/actions/issue
         id: issue
         with:
