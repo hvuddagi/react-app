@@ -1,0 +1,31 @@
+on: push
+jobs:
+  testing-action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: npm install @actions/github --save
+      - run: npm install @actions/core --save
+      - run: npm i -D @zeit/ncc
+      - name: Compile index.js
+        run: npm run ncccompile
+      - name: Compile issue/index.js
+        run: npm run compileissue
+      - uses: ./.github/actions/issue
+        id: issue
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: Title
+          body: Body
+          assignees: |
+            hvuddagi
+            harshavardhanguptha
+      - run: |
+          echo ${{ steps.issue.outputs.issue }}
+      - uses: ./.github/actions/hello
+        id: hello
+        with:
+          who-to-greet: "World"
+      - run: |
+          echo "Time: ${{ steps.hello.outputs.time }}"
+          echo $HELLO
