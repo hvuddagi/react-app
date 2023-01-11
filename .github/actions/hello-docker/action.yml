@@ -1,0 +1,19 @@
+name: Hello World
+author: Harsha Vuddagiri
+description: Some description
+inputs:
+  who-to-greet:
+    description: "Who to greet"
+    required: true
+    default: Harsha
+outputs:
+  time:
+    description: "The greeting time"
+runs:
+  using: "docker"
+  #    main: 'index.js'
+  image: "Dockerfile"
+#  env:
+#    vfdsb: gege
+  args:
+    - $ {{ inputs.who-to-greet }}
